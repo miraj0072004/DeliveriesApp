@@ -23,7 +23,7 @@ namespace DeliveriesApp
             emailEditText = FindViewById<EditText>(Resource.Id.emailEditText);
             passwordEditText = FindViewById<EditText>(Resource.Id.passwordEditText);
             signinButton = FindViewById<Button>(Resource.Id.signinButton);
-            registerButton = FindViewById<Button>(Resource.Id.registerButton);
+            registerButton = FindViewById<Button>(Resource.Id.loginRegisterButton);
 
             signinButton.Click += SigninButton_Click;
             registerButton.Click += RegisterButton_Click;
