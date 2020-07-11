@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Runtime;
@@ -34,7 +35,8 @@ namespace DeliveriesApp
 
         private void RegisterButton_Click(object sender, System.EventArgs e)
         {
-            
+            var intent = new Intent(this, typeof(RegisterActivity));
+            StartActivity(intent);
         }
 
         private void SigninButton_Click(object sender, System.EventArgs e)
