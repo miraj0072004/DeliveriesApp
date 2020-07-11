@@ -28,7 +28,9 @@ namespace DeliveriesApp
             registerButton = FindViewById<Button>(Resource.Id.registerButton);
 
             registerButton.Click += RegisterButton_Click;
-            // Create your application here
+
+            string email = Intent.GetStringExtra("email");
+            emailEditText.Text = email;
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)

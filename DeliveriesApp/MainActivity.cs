@@ -36,6 +36,7 @@ namespace DeliveriesApp
         private void RegisterButton_Click(object sender, System.EventArgs e)
         {
             var intent = new Intent(this, typeof(RegisterActivity));
+            intent.PutExtra("email", emailEditText.Text);
             StartActivity(intent);
         }
 
