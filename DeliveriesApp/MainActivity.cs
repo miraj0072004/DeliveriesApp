@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System.Linq;
+using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Support.V7.App;
@@ -44,9 +45,26 @@ namespace DeliveriesApp
             StartActivity(intent);
         }
 
-        private void SigninButton_Click(object sender, System.EventArgs e)
+        private async void SigninButton_Click(object sender, System.EventArgs e)
         {
-            
+            var email = emailEditText.Text;
+            var password = passwordEditText.Text;
+
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            {
+                Toast.MakeText(this,"Email or password cannot be empty",ToastLength.Long).Show();
+            }
+            else
+            {
+                var user = (await MobileService.GetTable<User>().Where(u => u.Email == email).ToListAsync())
+                    .FirstOrDefault();
+
+                if(user.Password == password)
+                    Toast.MakeText(this, "Login  successful", ToastLength.Long).Show();
+                else
+                    Toast.MakeText(this, "Incorrect password", ToastLength.Long).Show();
+                
+            }
         }
 
         //private void HelloButton_Click(object sender, System.EventArgs e)
