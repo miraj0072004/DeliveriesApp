@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace DeliveriesApp
 {
@@ -14,6 +15,9 @@ namespace DeliveriesApp
         EditText passwordEditText;
         Button signinButton;
         Button registerButton;
+
+        public static MobileServiceClient MobileService =
+            new MobileServiceClient("https://xamarindeliveriesmirajapp.azurewebsites.net");
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

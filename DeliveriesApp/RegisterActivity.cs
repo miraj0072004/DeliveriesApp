@@ -33,8 +33,27 @@ namespace DeliveriesApp
             emailEditText.Text = email;
         }
 
-        private void RegisterButton_Click(object sender, EventArgs e)
+        private async void RegisterButton_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(passwordEditText.Text))
+            {
+                if (passwordEditText.Text == confirmPasswordEditText.Text)
+                {
+                    var user = new User
+                    {
+                        Email = emailEditText.Text,
+                        Password = passwordEditText.Text
+                    };
+
+                    await MainActivity.MobileService.GetTable<User>().InsertAsync(user);
+                    Toast.MakeText(this,"Success",ToastLength.Long).Show();
+                    return;
+                    
+                }
+                Toast.MakeText(this, "password and confirm password doesn't match", ToastLength.Long).Show();
+                return;
+            }
+            Toast.MakeText(this, "password cannot be empty", ToastLength.Long).Show();
             
         }
     }
