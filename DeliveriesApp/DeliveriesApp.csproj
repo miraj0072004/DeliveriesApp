@@ -61,6 +61,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AzureHelper.cs" />
+    <Compile Include="Delivery.cs" />
+    <Compile Include="DeliveryPerson.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="RegisterActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />

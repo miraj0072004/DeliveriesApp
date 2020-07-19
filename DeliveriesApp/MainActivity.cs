@@ -17,8 +17,7 @@ namespace DeliveriesApp
         Button signinButton;
         Button registerButton;
 
-        public static MobileServiceClient MobileService =
-            new MobileServiceClient("https://xamarindeliveriesmirajapp.azurewebsites.net");
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -56,7 +55,7 @@ namespace DeliveriesApp
             }
             else
             {
-                var user = (await MobileService.GetTable<User>().Where(u => u.Email == email).ToListAsync())
+                var user = (await AzureHelper.MobileService.GetTable<User>().Where(u => u.Email == email).ToListAsync())
                     .FirstOrDefault();
 
                 if(user.Password == password)

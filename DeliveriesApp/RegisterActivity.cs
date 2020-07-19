@@ -45,7 +45,7 @@ namespace DeliveriesApp
                         Password = passwordEditText.Text
                     };
 
-                    await MainActivity.MobileService.GetTable<User>().InsertAsync(user);
+                    await AzureHelper.MobileService.GetTable<User>().InsertAsync(user);
                     Toast.MakeText(this,"Success",ToastLength.Long).Show();
                     return;
                     
