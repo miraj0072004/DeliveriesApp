@@ -58,8 +58,12 @@ namespace DeliveriesApp
                 var user = (await AzureHelper.MobileService.GetTable<User>().Where(u => u.Email == email).ToListAsync())
                     .FirstOrDefault();
 
-                if(user.Password == password)
+                if (user.Password == password)
+                {
                     Toast.MakeText(this, "Login  successful", ToastLength.Long).Show();
+                    Intent intent = new Intent(this, typeof(TabsActivity));
+                    StartActivity(intent);
+                }
                 else
                     Toast.MakeText(this, "Incorrect password", ToastLength.Long).Show();
                 
