@@ -19,17 +19,39 @@ namespace DeliveriesApp
     public class TabsActivity : FragmentActivity
     {
         private TabLayout tabLayout;
+        private Android.Support.V7.Widget.Toolbar tabsToolbar;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Tabs);
 
+            //tabs layout
             tabLayout = FindViewById<TabLayout>(Resource.Id.mainTabLayout);
             tabLayout.TabSelected += TabLayout_TabSelected;
-            // Create your application here
+            
+            //tabs toolbar
+            tabsToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.tabsToolbar);
+            tabsToolbar.InflateMenu(Resource.Menu.tabsMenu);
+            tabsToolbar.MenuItemClick += TabsToolbar_MenuItemClick;
 
             FragmanetNavigate(new DeliveriesFragment());
         }
+
+        private void TabsToolbar_MenuItemClick(object sender, Android.Support.V7.Widget.Toolbar.MenuItemClickEventArgs e)
+        {
+            if (e.Item.ItemId == Resource.Id.action_add)
+            {
+                StartActivity(typeof(NewDeliveryActivity));
+            }
+        }
+
+        //public override bool OnOptionsItemSelected(IMenuItem item)
+        //{
+        //    switch (item.ItemId)
+        //    {
+        //        case Resource.Id.
+        //    }
+        //}
 
         private void TabLayout_TabSelected(object sender, TabLayout.TabSelectedEventArgs e)
         {
