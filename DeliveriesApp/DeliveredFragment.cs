@@ -16,11 +16,13 @@ namespace DeliveriesApp
 {
     public class DeliveredFragment : Android.Support.V4.App.ListFragment
     {
-        public override void OnCreate(Bundle savedInstanceState)
+        public override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your fragment here
+            var delivered = await Delivery.GetDelivered();
+            ListAdapter = new ArrayAdapter(Activity, Android.Resource.Layout.SimpleListItem1, delivered);
         }
 
         //After changing the class that is inherited from, from Fragment to ListFragment, the following is no longer needed
