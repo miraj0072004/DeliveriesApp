@@ -22,7 +22,8 @@ namespace DeliveriesApp
 
             // Create your fragment here
             var delivered = await Delivery.GetDelivered();
-            ListAdapter = new ArrayAdapter(Activity, Android.Resource.Layout.SimpleListItem1, delivered);
+            //ListAdapter = new ArrayAdapter(Activity, Android.Resource.Layout.SimpleListItem1, delivered);
+            ListAdapter = new DeliveryAdapter(Activity, delivered);
         }
 
         //After changing the class that is inherited from, from Fragment to ListFragment, the following is no longer needed
