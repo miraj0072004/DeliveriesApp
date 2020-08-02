@@ -1,6 +1,7 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,11 +23,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView1" />
+    
+    <fragment 
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/mapFragment"
+        
+        />
+
+
+    <TextView
+      android:text="Locate Package Destination"
+      android:textAppearance="?android:attr/textAppearanceSmall"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView2" />
 
     <fragment
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        class="com.google.android.gms.maps.MapFragment"
-        android:id="@+id/mapFragment"/>
+      android:name="com.google.android.gms.maps.MapFragment"
+      android:layout_width="match_parent"
+      android:layout_height="200dp"
+      android:id="@+id/destinationMapFragment"/>
 
 </LinearLayout>
