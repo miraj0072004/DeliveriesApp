@@ -34,7 +34,7 @@ namespace DeliveriesApp
             tabsToolbar.InflateMenu(Resource.Menu.tabsMenu);
             tabsToolbar.MenuItemClick += TabsToolbar_MenuItemClick;
 
-            FragmanetNavigate(new DeliveriesFragment());
+            FragmentNavigate(new DeliveriesFragment());
         }
 
         private void TabsToolbar_MenuItemClick(object sender, Android.Support.V7.Widget.Toolbar.MenuItemClickEventArgs e)
@@ -58,18 +58,18 @@ namespace DeliveriesApp
             switch (e.Tab.Position)
             {
                 case 0:
-                    FragmanetNavigate(new DeliveriesFragment());
+                    FragmentNavigate(new DeliveriesFragment());
                     break;
                 case 1:
-                    FragmanetNavigate(new DeliveredFragment());
+                    FragmentNavigate(new DeliveredFragment());
                     break;
                 case 2:
-                    FragmanetNavigate(new ProfileFragment());
+                    FragmentNavigate(new ProfileFragment());
                     break;
             }
         }
 
-        private void FragmanetNavigate(Fragment fragment)
+        private void FragmentNavigate(Fragment fragment)
         {
             var transaction = SupportFragmentManager.BeginTransaction();
             transaction.Replace(Resource.Id.contentFrame, fragment);
