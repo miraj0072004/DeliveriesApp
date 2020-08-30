@@ -9,24 +9,23 @@
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:id="@+id/registerEmail"
+        android:id="@+id/emailEditText"
         android:hint="Email" />
     <EditText
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/registerPassword"
+        android:id="@+id/passwordEditText"
         android:hint="Password" />
-    <EditText
-        android:inputType="textPassword"
+    <Button
+        android:text="Sign In"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/registerConfirmPassword"
-        android:hint="Confirm Password" />
+        android:id="@+id/signinButton" />
     <Button
         android:text="Register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/registerSaveButton" />
+        android:id="@+id/registerButton" />
 
 </LinearLayout>

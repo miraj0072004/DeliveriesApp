@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace DeliveryPersonApp
 {
-    public class WaitingFragment : Android.Support.V4.App.Fragment
+    public class WaitingFragment : Android.Support.V4.App.ListFragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
