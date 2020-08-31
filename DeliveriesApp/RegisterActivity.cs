@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using DeliveriesModels;
 
 namespace DeliveriesApp
 {
@@ -35,27 +36,12 @@ namespace DeliveriesApp
 
         private async void RegisterButton_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(passwordEditText.Text))
+            if (await User.Register(emailEditText.Text,passwordEditText.Text,confirmPasswordEditText.Text))
             {
-                if (passwordEditText.Text == confirmPasswordEditText.Text)
-                {
-                    var user = new User
-                    {
-                        Email = emailEditText.Text,
-                        Password = passwordEditText.Text
-                    };
-
-                    //await AzureHelper.MobileService.GetTable<User>().InsertAsync(user);
-                    //using the generic helper method
-                    await AzureHelper.Insert(user);
-                    Toast.MakeText(this,"Success",ToastLength.Long).Show();
-                    return;
-                    
-                }
-                Toast.MakeText(this, "password and confirm password doesn't match", ToastLength.Long).Show();
+                Toast.MakeText(this, "Success", ToastLength.Long).Show();
                 return;
             }
-            Toast.MakeText(this, "password cannot be empty", ToastLength.Long).Show();
+            Toast.MakeText(this, "There was an error, Please try again", ToastLength.Long).Show();
             
         }
     }

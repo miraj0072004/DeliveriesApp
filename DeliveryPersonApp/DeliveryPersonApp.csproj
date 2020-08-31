@@ -64,11 +64,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AzureHelper.cs" />
     <Compile Include="DeliverActivity.cs" />
     <Compile Include="DeliveredFragment.cs" />
     <Compile Include="DeliveringFragment.cs" />
-    <Compile Include="Delivery.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="PickUpActivity.cs" />
     <Compile Include="RegisterActivity.cs" />
@@ -145,6 +143,12 @@
     <AndroidResource Include="Resources\layout\main.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeliveriesModels2\DeliveriesModels.csproj">
+      <Project>{c9c81c47-b0da-4b4f-b9b7-7fa5c6905b33}</Project>
+      <Name>DeliveriesModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

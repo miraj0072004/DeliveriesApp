@@ -16,6 +16,7 @@ using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using Android.Views;
 using Android.Widget;
+using DeliveriesModels;
 
 namespace DeliveriesApp
 {
